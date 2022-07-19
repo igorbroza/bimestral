@@ -25,7 +25,7 @@ class ProfessoreController extends Controller
         $regras = [
             'nome' => 'required|max:100|min:10',
             'email' => 'required|max:250|min:15|unique:professores',
-            'siape' => 'required|max:2|min:1|unique:professores',
+            'siape' => 'required|max:10|min:8|unique:professores',
             'radio' => 'required',
             'eixo_id' => 'required'
         ];
@@ -38,11 +38,11 @@ class ProfessoreController extends Controller
         ];
 
         $request->validate($regras, $msg);
-
+    
         Professore::create([
             "nome" => $request->nome,
-            "email" => $request->email,
-            "siape" => $request->siape,
+            "sigla" => $request->sigla,
+            "tempo" => $request->tempo,
             "ativo" => $request->radio,
             "eixo_id" => $request->eixo_id,
         ]);
@@ -84,7 +84,7 @@ class ProfessoreController extends Controller
 
         $request->validate($regras, $msg);
 
-        $obj = Professores::find($id);
+        $obj = Professore::find($id);
         
         if(!isset($obj)) {return "<h1>ID: $id não encontrado!</h1>"; }
     
@@ -93,22 +93,23 @@ class ProfessoreController extends Controller
             "nome" => $request->nome,
             "sigla" => $request->sigla,
             "tempo" => $request->tempo,
+            "ativo" => $request->radio,
             "eixo_id" => $request->eixo_id,
         ]);
 
         $obj->save();
 
-        return redirect()->route('cursos.index');
+        return redirect()->route('professores.index');
     }
 
     public function destroy($id) {
         
-        $obj = Curso::find($id);
+        $obj = Professore::find($id);
 
         if(!isset($obj)) {return "<h1>ID: $id não encontrado!</h1>"; }
 
         $obj->destroy();
 
-        return redirect()->route('cursos.index');
+        return redirect()->route('professores.index');
     }
 }

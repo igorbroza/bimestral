@@ -77,7 +77,7 @@
         </div>
         <nav class="navbar fixed-bottom navbar-dark bg-secondary">
             <div class="container-fluid">
-                <span class="text-white fw-light">&copy; Gil Eduardo de Andrade</span>
+                <span class="text-white fw-light">&copy; Igor Broza Santos</span>
             </div>
         </nav>
     </body>

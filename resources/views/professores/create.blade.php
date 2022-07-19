@@ -6,25 +6,7 @@
 @section('conteudo')
 
     <form action="{{ route('professores.store') }}" method="POST">
-        
-            <div class="row">
-                <div class="col mb-3">
-                    <div class="form-check form-check-inline @if($errors->has('radio')) is-invalid @endif p-0 m-0">
-                        <input class="btn-check" type="radio" name="radio" id="ativo" value="1">
-                        <label class="btn btn-outline-success" for="ativo">ATIVO</label>
-                    </div>
-                    <div class="form-check form-check-inline @if($errors->has('radio')) is-invalid @endif">
-                        <input class="btn-check" type="radio" name="radio" id="inativo" value="0">
-                        <label class="btn btn-outline-success" for="inativo">INATIVO</label>
-                    </div>
-                    @if($errors->has('radio'))
-                        <div class='invalid-feedback'>
-                            {{ $errors->first('radio') }}
-                        </div>
-                    @endif 
-                </div>
-            </div>            
-        <div class="row">
+    <div class="row">
             <div class="col" >
                 <div class="form-floating mb-3">
                     <input 
@@ -60,6 +42,23 @@
                     @endif
                     <label for="email">Email do Professor</label>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <div class="form-check form-check-inline @if($errors->has('radio')) is-invalid @endif p-0 m-0">
+                    <input class="btn-check" type="radio" name="radio" id="ativo" value="1">
+                    <label class="btn btn-outline-success" for="ativo">ATIVO</label>
+                </div>
+                <div class="form-check form-check-inline @if($errors->has('radio')) is-invalid @endif">
+                    <input class="btn-check" type="radio" name="radio" id="inativo" value="0">
+                    <label class="btn btn-outline-success" for="inativo">INATIVO</label>
+                </div>
+                @if($errors->has('radio'))
+                    <div class='invalid-feedback'>
+                        {{ $errors->first('radio') }}
+                    </div>
+                @endif 
             </div>
         </div>
         <div class="row">

@@ -1,17 +1,17 @@
 <!-- Herda o layout padrão definido no template "main" -->
-@extends('templates.main', ['titulo' => "Alterar Eixo"])
+@extends('templates.main', ['titulo' => "Alterar Professor"])
 <!-- Preenche o conteúdo da seção "titulo" -->
-@section('titulo') Eixoss @endsection
+@section('titulo') Professores @endsection
 <!-- Preenche o conteúdo da seção "conteudo" -->
 @section('conteudo')
 
-<form action="{{ route('eixos.update', $dados['id']) }}" method="POST">
+<form action="{{ route('professores.update', $dados['id']) }}" method="POST">
     @csrf
     @method('PUT')
     <div class="row">
-        <div class="col" >
-            <div class="form-floating mb-3">
-                <input 
+            <div class="col" >
+                <div class="form-floating mb-3">
+                    <input 
                         type="text" 
                         class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}" 
                         name="nome" 
@@ -23,10 +23,79 @@
                             {{ $errors->first('nome') }}
                         </div>
                     @endif
-                <label for="nome">Nome do Eixo</label>
+                    <label for="nome">Nome do Professor</label>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col" >
+                <div class="form-floating mb-3">
+                    <input 
+                        type="email" 
+                        class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" 
+                        name="email" 
+                        placeholder="email"
+                        value="{{old('email')}}"
+                    />
+                    @if($errors->has('email'))
+                        <div class='invalid-feedback'>
+                            {{ $errors->first('email') }}
+                        </div>
+                    @endif
+                    <label for="email">Email do Professor</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <div class="form-check form-check-inline @if($errors->has('radio')) is-invalid @endif p-0 m-0">
+                    <input class="btn-check" type="radio" name="radio" id="ativo" value="1">
+                    <label class="btn btn-outline-success" for="ativo">ATIVO</label>
+                </div>
+                <div class="form-check form-check-inline @if($errors->has('radio')) is-invalid @endif">
+                    <input class="btn-check" type="radio" name="radio" id="inativo" value="0">
+                    <label class="btn btn-outline-success" for="inativo">INATIVO</label>
+                </div>
+                @if($errors->has('radio'))
+                    <div class='invalid-feedback'>
+                        {{ $errors->first('radio') }}
+                    </div>
+                @endif 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" >
+                <div class="form-floating mb-3">
+                    <input 
+                        type="text" 
+                        class="form-control {{ $errors->has('siape') ? 'is-invalid' : '' }}" 
+                        name="siape" 
+                        placeholder="siape"
+                        value="{{old('siape')}}"
+                    />
+                    @if($errors->has('siape'))
+                        <div class='invalid-feedback'>
+                            {{ $errors->first('siape') }}
+                        </div>
+                    @endif
+                    <label for="siape">Siape do Professor</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" >
+                <div class="form-floating mb-3">    
+                    <select
+                        class="form-control" 
+                        name="eixo_id"
+                    >    
+                            @foreach($eixos as $item)
+                                <option value="{{ $item->id }}"> {{$item->nome}} </option>
+                            @endforeach
+                    </select>
+                </div>           
+            </div>
+        </div>
     <div class="row">
         <div class="col">
             <a href="{{route('eixos.index')}}" class="btn btn-secondary btn-block align-content-center">
