@@ -51,8 +51,6 @@ class ProfessoreController extends Controller
     }
 
     public function show($id) {
-
-        return view('professores.show', compact('dados'));
     }
 
     public function edit($id) {

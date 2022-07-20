@@ -10,9 +10,9 @@
             
             <!-- Utiliza o componente "datalist" criado -->
             <x-proDatalist 
-                :header="['ID', 'NOME', 'EIXO', 'ACOES']" 
+                :header="['ID', 'ATIVO', 'NOME', 'EMAIL', 'ACOES']" 
                 :data="$dados"
-                :hide="[true, false, true, false]" 
+                :hide="[true, false, true, false, true]" 
             />
 
         </div>

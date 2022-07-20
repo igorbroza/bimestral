@@ -45,7 +45,7 @@ class DocenciaController extends Controller
         $doc = new Docencia();
 
         
-            $doc->professore_id = $ids_prof;
+            $doc->professore_id = $ids_profs;
             $doc->disciplina_id = $disciplina;
             $doc->save();
         
@@ -53,47 +53,21 @@ class DocenciaController extends Controller
         return redirect()->route('docencias.index');
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         //

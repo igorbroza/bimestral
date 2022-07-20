@@ -40,8 +40,6 @@ class EixoController extends Controller{
     }
 
     public function show($id) {
-
-        return view('eixos.show', compact('dados'));
     }
 
     public function edit($id) {

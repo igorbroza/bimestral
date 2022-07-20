@@ -45,9 +45,7 @@ class DisciplinaController extends Controller
         return redirect()->route('disciplinas.index');
     }
 
-    public function show($id) {
-
-        return view('disciplinas.show', compact('dados'));
+    public function show($id){
     }
 
     public function edit($id) {

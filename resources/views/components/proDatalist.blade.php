@@ -21,6 +21,7 @@
             @foreach ($data as $item)
                 <tr>
                     <td class="d-none d-md-table-cell">{{ $item['id'] }}</td>
+                    <td class="d-none d-md-table-cell">@if($item->ativo == 1) ATIVO @else INATIVO @endif</td>
                     <td>{{ $item['nome'] }}</td>
                     <td class="d-none d-md-table-cell">{{ $item['email'] }}</td>
                     

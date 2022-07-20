@@ -49,8 +49,6 @@ class CursoController extends Controller
     }
 
     public function show($id) {
-
-        return view('cursos.show', compact('dados'));
     }
 
     public function edit($id) {
